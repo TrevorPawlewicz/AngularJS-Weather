@@ -2,6 +2,6 @@
 
 weatherApp.service('cityService', function(){
 
-    this.city = "New York, NY"; // default
+    this.city = "Philadelphia, PA"; // default
 });
 //----------------------------------------------------------------------------

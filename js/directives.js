@@ -1,4 +1,4 @@
-// DIRECTIVES:
+// DIRECTIVES: An instruction to AngularJS to manipulate a piece of the DOM.
 
 weatherApp.directive('weatherReport', function(){
     return {
