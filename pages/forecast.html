@@ -1,4 +1,21 @@
+<p>
+    <!--     # because it is a single page application -->
+    <a href="#/">Back to Search</a>
+</p>
+
 <h3>Forecast for {{city}}</h3>
+
+<div class="container">
+    <p>Number of days:</p>
+    <a href="#forecast/2" class="btn btn-info" ng-class="{'bg-primary': days === '2'}" role="button">2</a>
+    <a href="#forecast/5" class="btn btn-info" ng-class="{'bg-primary': days === '5'}" role="button">5</a>
+    <a href="#forecast/7" class="btn btn-info" ng-class="{'bg-primary': days === '7'}" role="button">7</a>
+</div>
+
+
+
+<hr>
+
 
 
 <div ng-repeat="result in weatherResult.list">
@@ -6,11 +23,13 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ result.dt }}</h3>
+                    <h3 class="panel-title">
+                        {{ convertToDate(result.dt) | date: 'MMM d, y'}}
+                    </h3>
                 </div>
 
                 <div class="panel-body">
-                    Temp: {{ result.temp.day }}
+                    Daytime Tempurature: {{ convertToFahrenheit(result.temp.day) }}
                 </div>
             </div>
         </div>
