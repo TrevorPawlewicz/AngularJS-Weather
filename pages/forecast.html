@@ -7,9 +7,9 @@
 
 <div class="container">
     <p>Number of days:</p>
-    <a href="#forecast/2" class="btn btn-info" ng-class="{'bg-primary': days === '2'}" role="button">2</a>
-    <a href="#forecast/5" class="btn btn-info" ng-class="{'bg-primary': days === '5'}" role="button">5</a>
-    <a href="#forecast/7" class="btn btn-info" ng-class="{'bg-primary': days === '7'}" role="button">7</a>
+    <a href="#forecast/2" class="btn btn-info" ng-class="{'active': days === '2'}" role="button">2</a>
+    <a href="#forecast/5" class="btn btn-info" ng-class="{'active': days === '5'}" role="button">5</a>
+    <a href="#forecast/7" class="btn btn-info" ng-class="{'active': days === '7'}" role="button">7</a>
 </div>
 
 
@@ -21,6 +21,11 @@
 <div ng-repeat="result in weatherResult.list">
     <div class="row">
         <div class="col-md-12">
+            <!-- custom Directive -->
+            <weather-report weather-day="result" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="MMM d, y">
+            </weather-report>
+
+            <!-- now in weatherReport.html
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -32,6 +37,7 @@
                     Daytime Tempurature: {{ convertToFahrenheit(result.temp.day) }}
                 </div>
             </div>
+            -->
         </div>
     </div>
 </div>
