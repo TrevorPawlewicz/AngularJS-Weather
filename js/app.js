@@ -1,5 +1,5 @@
 // MODULE: where we write pieces of our Angular application.
-//                              ng-app link
+//                              ng-app link,               gets data off internet
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 //----------------------------------------------------------------------------
 
@@ -18,6 +18,7 @@ weatherApp.config(function($routeProvider){
         })
 });
 //----------------------------------------------------------------------------
+
 
 // SERVICES: a Singleton object that will contain properties and Functions.
 weatherApp.service('cityService', function(){
@@ -41,8 +42,21 @@ weatherApp.controller('homeController', ['$scope', 'cityService', function($scop
 }]);
 
 // for forecast.html
-weatherApp.controller('forecastController', ['$scope', 'cityService', function($scope, cityService){
+weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService', function($scope, $resource, cityService){
+    var myWeatherKey = config.MY_KEY_WEATHER_API;
 
     $scope.city = cityService.city;
+
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=17456b502241b9ee322faae7e6e183f9", {
+        callback: "JSON_CALLBACK"
+    },
+        {
+            get: { method: "JSONP" }
+        }
+    );
+
+    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: 2});
+
+    console.log($scope.weatherResult);
 }]);
 //----------------------------------------------------------------------------
