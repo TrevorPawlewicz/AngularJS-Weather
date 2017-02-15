@@ -1,0 +1,23 @@
+{
+  "name": "angular-weather-app",
+  "version": "1.0.0",
+  "description": "![Angular Image](https://i.ytimg.com/i/bn1OgGei-DV7aSRo_HaAiw/mq1.jpg?raw=true)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrevorPawlewicz/AngularJS-Weather.git"
+  },
+  "author": "trev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrevorPawlewicz/AngularJS-Weather/issues"
+  },
+  "homepage": "https://github.com/TrevorPawlewicz/AngularJS-Weather#readme",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}

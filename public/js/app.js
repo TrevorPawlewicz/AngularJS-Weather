@@ -3,7 +3,7 @@
 var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 //----------------------------------------------------------------------------
 
-// 
+//
 // // ROUTES: links to ng-view in index.html
 // weatherApp.config(function($routeProvider){
 //
